@@ -1,15 +1,27 @@
+
+
+
+
+<!-- Modal -->
+
 <a class="back" (click)="goBack()" #back>
   <svg class="icon icon-back">
     <use href="./assets/icons.svg#icon-chevron-small-left"></use>
   </svg>
 </a>
+
+
 <div
   #image
   [ngClass]="animationElement"
   class="info-image"
   [ngStyle]="(ui.getOpenState() | async) === 'closed' && { display: 'none' }"
 >
+
+
   <img src="{{ property?.propertyImageUrl }}" alt="" />
+
+
 </div>
 <div class="property-info" #info [ngClass]="animationElement">
   <h4 class="heading-4">{{ property.propertyAddress }}</h4>
@@ -19,7 +31,29 @@
     <span>{{ property.numberOfBedrooms }} bathrooms </span>
     <span>{{ property.squareMeters }}m </span>
   </div>
-  <span class="price">${{ property.price }}</span>
+<span class="price">{{ property.price }}TND</span>
+  <ul class="list-group">
+   <div>
+     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+     <button type="button" class="call" #call  [disabled]="property.buy" (click) ="toggle()" >Buy</button>
+
+    <button type="button" class="call"  [disabled]="property.rent"  (click) ="tog()"  >Rent</button>
+     </div>
+   </div>
+  </ul>
+
+
 </div>
 
-<button class="call" #call>Call owner</button>
+
+
+
+
+
+
+
+
+
+
+
+

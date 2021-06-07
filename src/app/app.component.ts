@@ -61,6 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
   propertiesList = propertiesList;
   openState: OpenState;
   menuLink: string;
+  title: string;
 
   constructor(
     public ui: UiService,
@@ -118,4 +119,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.destroyed$.next();
     this.destroyed$.complete();
   }
+
 }

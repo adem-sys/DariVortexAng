@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <form>
+        <fieldset>
+
+          <legend class="text-center"><h1>Deposit guarantee</h1><span class="req"><small>
+                                 </small></span></legend>
+
+          <div class="form-group">
+            <label ><span class="req"> </span> phoneNumber: </label>
+            <input class="form-control" type="text" [(ngModel)] ="deposit.phoneNumber"  name="phoneNumber"  required placeholder="Enter your phoneNumber" />
+          </div>
+
+          <div class="form-group">
+            <label ><span class="req"> </span> Address email : </label>
+            <input class="form-control" type="email" [(ngModel)] ="deposit.addressMail" name="addressMail"  required placeholder="name@example.com" />
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label ><span class="req"> </span> Payslips: </label>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="file" class="form-control-file"  (change)="onFileChanged($event)"  name="Payslips"/>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label ><span class="req"> </span> Engagement letter: </label>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="file" class="form-control-file" (change)="onFileChanged($event)"  name="Engagement letter"/>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label ><span class="req"> </span> Justification of payment: </label>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="file" class="form-control-file" (change)="onFileChanged($event)" name="Justification of payment"/>
+
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="onUpload()">
+            <p></p>
+            <div class="col-md-4" style="margin-left: 320px;">
+            <ngx-paypal [config]="payPalConfig" ></ngx-paypal>
+            </div>
+            <p></p>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="detail" [@detailPage]="openState">
+    <router-outlet name="d"></router-outlet>
+  </div>
+
+</div>
